@@ -9,3 +9,4 @@ FichaJR.Persistence/obj/
 FichaJR.API2/fichas.db
 FichaJR.API2/fichas.db-shm
 FichaJR.API2/fichas.db-wal
+ficha-app/node_modules/
