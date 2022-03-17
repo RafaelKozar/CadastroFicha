@@ -1,0 +1,11 @@
+.vs/DesignTimeBuild/.dtbcache.v2
+.vs/
+FichaJR.API2/bin/
+FichaJR.API2/obj/
+FichaJR.Domain/bin/
+FichaJR.Domain/obj/
+FichaJR.Persistence/bin/
+FichaJR.Persistence/obj/
+FichaJR.API2/fichas.db
+FichaJR.API2/fichas.db-shm
+FichaJR.API2/fichas.db-wal
