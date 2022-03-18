@@ -7,11 +7,14 @@ import MyTextInput from './common/MyTextInput';
 import MySelectInput from './common/MySelectInput';
 import agent from './api/agent';
 import { IFicha } from './models/ficha';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import CadastroPage from './cadastro/CadastroPage';
+import Resultado from './resultado/Resultado';
 
 
 function App() {
 
-  
+
   const [initialFicha, setInitialFicha] = useState<IFicha>({
     celular: '',
     nome: '',
@@ -35,7 +38,7 @@ function App() {
   const validacaoFicha = Yup.object({
     nome: Yup.string().required("Preencha o campo nome"),
     celular: Yup.string().required("Preencha o campo celular").matches(/^[0-9]+$/, "apenas número").min(11, "Preencha o campo celular com um número valido").max(11, "Preencha o campo celular com um número valido"),
-    quantidade: Yup.number().positive().nullable(true).required("Selecione o número de fichas do cadastro")       
+    quantidade: Yup.number().positive().nullable(true).required("Selecione o número de fichas do cadastro")
 
   })
 
@@ -47,11 +50,6 @@ function App() {
     ficha.celular = ficha.celular.toString()
     console.log(ficha)
     agent.FichaApi.create(ficha).then(() => {
-      <Modal onClose={fecharModal}>
-        <Modal.Content>
-          Irraaaá
-        </Modal.Content>
-      </Modal>
     })
 
     // window.location.reload()
@@ -59,31 +57,15 @@ function App() {
 
 
   return (
-    <div className="App">
-      <Formik
-        validationSchema={validacaoFicha}
-        enableReinitialize
-        initialValues={initialFicha}
-        onSubmit={values => handleFormSubmit(values)}>
-        {({ handleSubmit, isValid, isSubmitting, dirty }) => (
-          <Form onSubmit={handleSubmit} className="Form">
-            <MyTextInput placeholder="Nome" name="nome" />
-            <MyTextInput placeholder="Celular" type='number' name="celular" />
-            <MySelectInput
-              placeholder='Selecione a quantidade de Fichas que a pessoa está comprando'
-              name="quantidade"
-              options={fichaOpcoesQuantidade} />
-            <Button
-              disabled={!dirty || !isValid}
-              color='green'
-              type='submit'>Enviar</Button>
-          </Form>
+    <>
+      {/* <BrowserRouter> */}
+        <Routes>
+          <Route path='/' element={<CadastroPage />} />
+          <Route path='/resultado' element={<Resultado />} />
+        </Routes>
+      {/* </BrowserRouter> */}    
 
-        )}
-
-
-      </Formik>
-    </div>
+    </>
   );
 }
 
