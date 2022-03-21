@@ -11,9 +11,9 @@ import styles from './styles.module.scss';
 export default function CadastroPage() {
 
     const [initialFicha, setInitialFicha] = useState<IFicha>({
-        celular: '',
-        nome: '',
-        quantidade: null
+        phone: '',
+        name: '',
+        quantity: null
     });
 
 
@@ -31,9 +31,9 @@ export default function CadastroPage() {
     const fichaOpcoesQuantidade = gerarOpcoesQuantidadeFicha()
 
     const validacaoFicha = Yup.object({
-        nome: Yup.string().required("Preencha o campo nome"),
-        celular: Yup.string().required("Preencha o campo celular").matches(/^[0-9]+$/, "apenas número").min(11, "Preencha o campo celular com um número valido").max(11, "Preencha o campo celular com um número valido"),
-        quantidade: Yup.number().positive().nullable(true).required("Selecione o número de fichas do cadastro")
+        name: Yup.string().required("Preencha o campo nome"),
+        phone: Yup.string().required("Preencha o campo celular").matches(/^[0-9]+$/, "apenas número").min(11, "Preencha o campo celular com um número valido").max(11, "Preencha o campo celular com um número valido"),
+        quantity: Yup.number().positive().nullable(true).required("Selecione o número de fichas do cadastro")
 
     })
 
@@ -42,9 +42,9 @@ export default function CadastroPage() {
     }
 
     const handleFormSubmit = (ficha: IFicha) => {
-        ficha.celular = ficha.celular.toString()
+        ficha.phone = ficha.phone.toString()
         console.log(ficha)
-        agent.FichaApi.create(ficha).then(() => {
+        agent.FichaApi.createTicket(ficha).then(() => {
         })
 
         // window.location.reload()
@@ -59,11 +59,11 @@ export default function CadastroPage() {
                 onSubmit={values => handleFormSubmit(values)}>
                 {({ handleSubmit, isValid, isSubmitting, dirty }) => (
                     <Form onSubmit={handleSubmit} className="Form">
-                        <MyTextInput placeholder="Nome" name="nome" />
-                        <MyTextInput placeholder="Celular" type='number' name="celular" />
+                        <MyTextInput placeholder="Nome" name="name" />
+                        <MyTextInput placeholder="Celular" type='number' name="phone" />
                         <MySelectInput
                             placeholder='Selecione a quantidade de Fichas que a pessoa está comprando'
-                            name="quantidade"
+                            name="quantity"
                             options={fichaOpcoesQuantidade} />
                         <Button
                             disabled={!dirty || !isValid}
