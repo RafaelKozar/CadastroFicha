@@ -8,8 +8,8 @@ namespace FichaJR.Domain
 {
     public class FichaDto
     {
-        public string Nome { get; set; }
-        public string Celular { get; set; }
-        public int Quantidade { get; set; } 
+        public string Name { get; set; }
+        public string Phone { get; set; }
+        public int Quantity { get; set; } 
     }
 }

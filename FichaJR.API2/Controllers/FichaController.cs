@@ -15,16 +15,16 @@ namespace FichaJR.API2.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(FichaDto ficha)
+        public async Task<IActionResult> CreateTicket(FichaDto ficha)
         {
             try
             {
-                for(var i = 0; i < ficha.Quantidade; i++ )
+                for(var i = 0; i < ficha.Quantity; i++ )
                 {
                     var fichaDb = new Ficha
                     {
-                        Celular = ficha.Celular,
-                        Nome = ficha.Nome,
+                        Phone = ficha.Phone,
+                        Name = ficha.Name,
                     };
                     _context.Add(fichaDb);                      
                 }
@@ -37,4 +37,6 @@ namespace FichaJR.API2.Controllers
             }
         }
     }
+
+    
 }

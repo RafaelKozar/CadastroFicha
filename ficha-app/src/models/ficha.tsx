@@ -1,6 +1,6 @@
 export interface IFicha {
     id?: Number;
-    nome: string;
-    celular: string|number;
-    quantidade: Number|null;
+    name: string;
+    phone: string|number;
+    quantity: Number|null;
 }

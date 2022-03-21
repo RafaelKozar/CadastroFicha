@@ -1,6 +1,7 @@
 import axios, { AxiosError, AxiosResponse } from 'axios';
 
-axios.defaults.baseURL = "https://localhost:7252/";
+// axios.defaults.baseURL = "https://localhost:7252/";
+axios.defaults.baseURL = "https://www.jesusrenasce.com.br/api/rifa-api/public/api/v1"
 
 
 const responseBody = (response : AxiosResponse) => response.data;
@@ -13,8 +14,10 @@ const requests = {
     delete: (url : string) => axios.delete(url).then(responseBody),
 } 
 
-const FichaApi = {
-    create: (ficha : {}) => requests.post('/Ficha', ficha)
+const FichaApi = { 
+    createTicket: (ficha : {}) => requests.post('/createTicket', ficha),
+    getQuantity: () => requests.get('/getQuantities'),
+    getRandomTicket: () => requests.get('/getRandomTicket')      
 }
 
 export default {
