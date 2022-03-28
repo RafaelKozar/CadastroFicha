@@ -36,6 +36,20 @@ namespace FichaJR.API2.Controllers
                 return BadRequest(ex.Message);
             }
         }
+
+        [HttpGet]
+        public async Task<IActionResult> GetQuantities()
+        {
+            try
+            {
+                var quantidadeFichas = _context.Fichas.Count();
+                return(Ok(quantidadeFichas));                
+            }
+            catch(Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
     }
 
     
