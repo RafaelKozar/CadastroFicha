@@ -13,7 +13,7 @@ import Resultado from '../resultadoCadastro/ResultadoCadastro';
 
 
 export default observer(function CadastroPage() {
-    const {modalStore} = useStore();
+    const { modalStore } = useStore();
     const [initialFicha, setInitialFicha] = useState<IFicha>({
         phone: '',
         name: '',
@@ -41,21 +41,16 @@ export default observer(function CadastroPage() {
 
     })
 
-    function fecharModal() {
-        window.location.reload()
-    }
-
+    
     const handleFormSubmit = (ficha: IFicha) => {
-        // ficha.phone = ficha.phone.toString()
-        console.log(ficha)
-        // agent.FichaApi.createTicket(ficha).then(() => {
-        //     modalStore.openModal(<Resultado sucesso={true}/>, true);
-        // }).catch(r => {
-        //     console.log(r)
-        //     modalStore.openModal(<Resultado sucesso={false} messageError={"dflds aflas flsafls  jfklsd lal sa"} />, false);
-        // })
+        // ficha.phone = ficha.phone.toString()        
+     
+        agent.FichaApi.createTicket(ficha).then(() => {
+            modalStore.openModal(<Resultado sucesso={true} />, true);
+        }).catch(r => {
+            modalStore.openModal(<Resultado sucesso={false} messageError={r} />, false);
+        });
 
-        // window.location.reload()
     }
 
     return (

@@ -10,11 +10,10 @@ interface IResultadoCadastroProps
 }
 
 export default observer(function ResultadoCadastro({sucesso, messageError} : IResultadoCadastroProps){
-    const [quantidadeFichas, setQuantidadeFichas] = useState<number>()    
-
+  
     return(
         <>
-            <h4>{sucesso ? "A ficha do cliente foi salva com sucesso" : '`{messageError}`' }</h4> 
+            <h4>{sucesso ? "A ficha do cliente foi salva com sucesso" : `menssage:  ${messageError}` }</h4> 
             
         </>
     )
