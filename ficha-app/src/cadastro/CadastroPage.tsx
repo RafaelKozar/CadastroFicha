@@ -9,7 +9,7 @@ import { IFicha } from '../models/ficha';
 import styles from './styles.module.scss';
 import { observer } from 'mobx-react-lite';
 import { useStore } from '../stores/store';
-import Resultado from '../resultado/Resultado';
+import Resultado from '../resultadoCadastro/ResultadoCadastro';
 
 
 export default observer(function CadastroPage() {
@@ -48,9 +48,12 @@ export default observer(function CadastroPage() {
     const handleFormSubmit = (ficha: IFicha) => {
         // ficha.phone = ficha.phone.toString()
         console.log(ficha)
-        agent.FichaApi.createTicket(ficha).then(() => {
-            modalStore.openModal(<Resultado/>);
-        })
+        // agent.FichaApi.createTicket(ficha).then(() => {
+        //     modalStore.openModal(<Resultado sucesso={true}/>, true);
+        // }).catch(r => {
+        //     console.log(r)
+        //     modalStore.openModal(<Resultado sucesso={false} messageError={"dflds aflas flsafls  jfklsd lal sa"} />, false);
+        // })
 
         // window.location.reload()
     }

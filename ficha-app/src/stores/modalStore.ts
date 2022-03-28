@@ -11,13 +11,16 @@ export default class ModalStore {
         body: null
     }
 
+    sucesso : boolean = false;
+
     constructor() {
         makeAutoObservable(this);
     }
 
-    openModal = (content : JSX.Element) => {
+    openModal = (content : JSX.Element, comsucesso: boolean) => {
         this.modal.open = true;
         this.modal.body = content;
+        this.sucesso = comsucesso;
     }
 
     closeModal = () => {
