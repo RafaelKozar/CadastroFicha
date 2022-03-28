@@ -6,7 +6,7 @@ import { useStore } from "../stores/store";
 export default observer(function ModalContainer() {
     const { modalStore,  } = useStore();
     return (
-        <Modal open={modalStore.modal.open} onClose={modalStore.closeModal} trigger>
+        <Modal open={modalStore.modal.open} onClose={modalStore.closeModal} >
             <Modal.Header>
                 {modalStore.sucesso ? "Cadastro Realizado com sucesso" : "Ops, aconteceu algum problema"}
             </Modal.Header>
