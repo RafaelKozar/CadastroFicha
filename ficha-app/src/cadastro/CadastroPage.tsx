@@ -7,9 +7,13 @@ import MySelectInput from '../common/MySelectInput';
 import agent from '../api/agent';
 import { IFicha } from '../models/ficha';
 import styles from './styles.module.scss';
+import { observer } from 'mobx-react-lite';
+import { useStore } from '../stores/store';
+import Resultado from '../resultado/Resultado';
 
-export default function CadastroPage() {
 
+export default observer(function CadastroPage() {
+    const {modalStore} = useStore();
     const [initialFicha, setInitialFicha] = useState<IFicha>({
         phone: '',
         name: '',
@@ -42,9 +46,10 @@ export default function CadastroPage() {
     }
 
     const handleFormSubmit = (ficha: IFicha) => {
-        ficha.phone = ficha.phone.toString()
+        // ficha.phone = ficha.phone.toString()
         console.log(ficha)
         agent.FichaApi.createTicket(ficha).then(() => {
+            modalStore.openModal(<Resultado/>);
         })
 
         // window.location.reload()
@@ -74,4 +79,4 @@ export default function CadastroPage() {
             </Formik>
         </div>
     )
-}
+})

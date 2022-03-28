@@ -1,7 +1,7 @@
 import axios, { AxiosError, AxiosResponse } from 'axios';
 
 // axios.defaults.baseURL = "https://localhost:7252/";
-axios.defaults.baseURL = "https://www.jesusrenasce.com.br/api/rifa-api/public/api/v1"
+axios.defaults.baseURL = "https://www.jesusrenasce.com.br/api/rifa-api/public/v1"
 
 
 const responseBody = (response : AxiosResponse) => response.data;

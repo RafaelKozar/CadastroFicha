@@ -1,18 +1,19 @@
+import { observer } from "mobx-react-lite"
 import { useEffect, useState } from "react"
 import agent from "../api/agent"
 
-export default function Resultado(){
+export default observer(function Resultado(){
     const [quantidadeFichas, setQuantidadeFichas] = useState<number>()
 
     useEffect(() => {
-        agent.FichaApi.getQuantity().then((r : {}) => {
-            console.log(r)
-        })
+        // agent.FichaApi.getQuantity().then((r : {}) => {
+        //     console.log(r)
+        // })
     }, [])
 
     return(
         <>
-            <h1>Resultado</h1>
+            <h1>Cadastrado com sucesso</h1>
         </>
     )
-}
+})
