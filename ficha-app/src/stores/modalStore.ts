@@ -26,5 +26,6 @@ export default class ModalStore {
     closeModal = () => {
         this.modal.open = false;
         this.modal.body = null;
+        window.location.reload();
     }
 }
