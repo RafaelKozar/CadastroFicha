@@ -26,7 +26,7 @@ export default function MyTextInput(props: Props) {
 
     if (props.mascara) {
         return (
-            <Form.Field error={meta.touched && !!meta.error}>
+            <Form.Field error={meta.touched && !!meta.error} >
                 <label>{props.label}</label>
                 <Input {...field} {...props} fluid>
                       <InputMask mask={props.mascara} placeholder='Celular'></InputMask> 
