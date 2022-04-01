@@ -8,6 +8,15 @@
     
     margin-top: 3rem;
   }
+
+  .progressdiv {
+    margin-top: 1rem;
+    text-align: center;
+    span{
+      
+      font-weight: bold;
+    }
+  }
 }
 .container {
   display: flex;
@@ -58,3 +67,5 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
 }
+
+
