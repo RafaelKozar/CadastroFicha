@@ -21,10 +21,8 @@ export default observer(function ResultadoFichas() {
 
         var objetivoCounter = objetivo
         var porcentoCalculado = 0
-        agent.FichaApi.getQuantity().then((r : TotalFichas) => {
-            r.total = 150                                   
+        agent.FichaApi.getQuantity().then((r : TotalFichas) => {                         
             setTotalFichas(r)     
-
             porcentoCalculado = (r.total/objetivo) *100;
             while (porcentoCalculado > 98) {
                 objetivoCounter = Math.round(objetivoCounter* 1.2)
