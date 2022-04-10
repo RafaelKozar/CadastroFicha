@@ -1,14 +1,11 @@
 import { observer } from "mobx-react-lite"
-import { Button as Tt, Modal as Tta, ModalActions } from "semantic-ui-react"
 
 import {
     Modal,
-    ModalOverlay,
-    ModalContent,
+    ModalOverlay,    
     ModalHeader,
     ModalFooter,
-    ModalBody,
-    ModalCloseButton,
+    ModalBody,    
     Button,
     useDisclosure
 } from '@chakra-ui/react'

@@ -1,4 +1,3 @@
-import { useDisclosure } from "@chakra-ui/react";
 import { makeAutoObservable } from "mobx"
 
 interface Modal {

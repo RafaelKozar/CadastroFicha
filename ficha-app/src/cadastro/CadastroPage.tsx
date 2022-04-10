@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import { Button } from '@chakra-ui/react'
 import * as Yup from 'yup';
-import { Formik, Form, Field } from "formik";
+import { Formik, Form} from "formik";
 import MyTextInput from '../common/MyTextInput';
 import MySelectInput from '../common/MySelectInput';
-import { Select } from '@chakra-ui/react'
 import agent from '../api/agent';
 import { IFicha } from '../models/ficha';
 import styles from './styles.module.scss';

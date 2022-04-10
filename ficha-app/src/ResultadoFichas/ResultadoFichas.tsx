@@ -1,5 +1,5 @@
 import { observer } from "mobx-react-lite"
-import { useCallback, useEffect, useState } from "react"
+import { useEffect, useState } from "react"
 
 import { Progress } from '@chakra-ui/react'
 import { Button} from '@chakra-ui/react'
@@ -8,13 +8,11 @@ import { TotalFichas } from "../models/totalFichas";
 import { useStore } from "../stores/store";
 import styles from './styles.module.scss';
 import Resultado from '../resultadoCadastro/ResultadoCadastro';
-import { Exception } from "sass";
 
 export default observer(function ResultadoFichas() {
     const { modalStore } = useStore();
     const [totalFichas, setTotalFichas] = useState<TotalFichas>({ peoples: 0, total: 0 });
-    const [porcentagemAlcancada, setPorcentagemAlcancada] = useState<number>(0);
-    const [teste, setT] = useState<Number>()
+    const [porcentagemAlcancada, setPorcentagemAlcancada] = useState<number>(0);    
     const [objetivo, setObjetivo] = useState<number>(100);
 
     
@@ -22,8 +20,7 @@ export default observer(function ResultadoFichas() {
     useEffect(() => {        
 
         var objetivoCounter = objetivo
-        var porcentoCalculado = 0
-        setPorcentagemAlcancada(50)
+        var porcentoCalculado = 0               
         agent.FichaApi.getQuantity().then((r : TotalFichas) => {                         
             setTotalFichas(r)     
             porcentoCalculado = (r.total/objetivo) *100;
@@ -83,7 +80,7 @@ export default observer(function ResultadoFichas() {
                 </div>
             </div>
             <div className={styles.progressdiv}>
-                <span>Objetivo: {objetivo} fichas</span>
+                <span>Objetivo: {objetivo} fichas<br></br></span>
                 <Progress value={porcentagemAlcancada} colorScheme="green" isAnimated={true} size='lg' />
             </div>
 
