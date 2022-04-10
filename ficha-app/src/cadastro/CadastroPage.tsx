@@ -68,7 +68,7 @@ export default observer(function CadastroPage() {
                             placeholder='Selecione a quantidade de Fichas que a pessoa está comprando'
                             name="quantity"
                             options={fichaOpcoesQuantidade} />
-                        <Button colorScheme='teal' size='lg' >Enviar</Button>
+                        <Button colorScheme='teal' size='md' >Enviar</Button>
                     </Form>
                 )}
             </Formik>
