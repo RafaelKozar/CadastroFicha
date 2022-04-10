@@ -1,6 +1,8 @@
 import { observer } from "mobx-react-lite"
 import { useCallback, useEffect, useState } from "react"
-import { Button, Card, Statistic, Progress } from "semantic-ui-react";
+
+import { Progress } from '@chakra-ui/react'
+import { Button} from '@chakra-ui/react'
 import agent from "../api/agent";
 import { TotalFichas } from "../models/totalFichas";
 import { useStore } from "../stores/store";
@@ -21,6 +23,7 @@ export default observer(function ResultadoFichas() {
 
         var objetivoCounter = objetivo
         var porcentoCalculado = 0
+        setPorcentagemAlcancada(50)
         agent.FichaApi.getQuantity().then((r : TotalFichas) => {                         
             setTotalFichas(r)     
             porcentoCalculado = (r.total/objetivo) *100;
@@ -64,28 +67,30 @@ export default observer(function ResultadoFichas() {
             <div className={styles.container}>
                 <div className={styles.box}>
                     <div className={styles.content} >
-                        <Statistic inverted>
-                            <Statistic.Value>{totalFichas?.peoples}</Statistic.Value>
-                            <Statistic.Label>Pessoas Cadastradas</Statistic.Label>
-                        </Statistic>
+                        
+                            <h1>{totalFichas?.peoples}</h1>
+                            <label>Pessoas Cadastradas</label>
+                        
                     </div>
                 </div>
                 <div className={styles.box}>
                     <div className={styles.content} >
-                        <Statistic inverted>
-                            <Statistic.Value>{totalFichas?.total}</Statistic.Value>
-                            <Statistic.Label>Total de fichas vendidas</Statistic.Label>
-                        </Statistic>
+                        
+                            <h1>{totalFichas?.total}</h1>
+                            <label>Total de fichas vendidas</label>
+                        
                     </div>
                 </div>
             </div>
             <div className={styles.progressdiv}>
                 <span>Objetivo: {objetivo} fichas</span>
-                <Progress percent={porcentagemAlcancada} indicating progress color="green" />
+                <Progress value={porcentagemAlcancada} colorScheme="green" isAnimated={true} size='lg' />
             </div>
 
-
-            <div className={styles.btn}><Button positive >Sortear</Button></div>
+            
+            <div className={styles.btn}>
+            <Button colorScheme='teal' size='lg'>Sortear</Button>
+            </div>
 
         </div>
 
