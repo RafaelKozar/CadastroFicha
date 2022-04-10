@@ -18,23 +18,8 @@ export default observer(function CadastroPage() {
         phone: '',
         name: '',
         quantity: null
-    });
+    });  
 
-  
-
-
-    function gerarOpcoesQuantidadeFicha(): any {
-        var obj = [{}]
-        for (var it = 1; it <= 10; it++) {
-            obj[it] = {
-                key: it,
-                text: it,
-                value: it
-            }
-        }
-        return obj
-    }
-    const fichaOpcoesQuantidade = gerarOpcoesQuantidadeFicha()
 
     const validacaoFicha = Yup.object({
         name: Yup.string().required("Preencha o campo nome"),
