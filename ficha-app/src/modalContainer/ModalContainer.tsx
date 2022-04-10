@@ -16,15 +16,15 @@ import { useEffect } from "react";
 
 export default observer(function ModalContainer() {
     const { modalStore } = useStore();
-    const {onOpen, isOpen } = useDisclosure()
+    // const {onOpen, isOpen } = useDisclosure()
 
-    useEffect(() => {        
-        onOpen();
-    }, [])
+    // useEffect(() => {        
+    //     onOpen();
+    // }, [])
 
     
     return (
-        <Modal isOpen={isOpen} onClose={modalStore.closeModal} size='lg'>
+        <Modal isOpen={modalStore.modal.open} onClose={modalStore.closeModal} size='lg'>
             {/* <ModalOverlay
                 bg='blackAlpha.300'
                 backdropFilter='blur(10px) hue-rotate(90deg)'

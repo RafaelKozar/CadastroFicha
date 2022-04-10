@@ -21,7 +21,7 @@ export default class ModalStore {
     }
 
     openModal = (content : JSX.Element, comsucesso: boolean) => {
-        // this.modal.open = true;        
+        this.modal.open = true;        
         this.modal.body = content;
         this.sucesso = comsucesso;
     }
