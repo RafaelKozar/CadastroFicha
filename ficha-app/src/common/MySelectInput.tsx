@@ -9,9 +9,9 @@ interface Props {
 }
 
 export default function MySelectInput(props: Props){
-    const [field, meta, helpers] = useField(props.name);
-
-    const valores = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    const [field, meta] = useField(props.name);
+    var valores = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    
 
     return (
         <>
