@@ -46,7 +46,8 @@ export default observer(function CadastroPage() {
 
 
     const handleFormSubmit = (ficha: IFicha) => {
-        // const q = parseInt(ficha.quantity)
+        const q = ficha.quantity?.toString()
+        ficha.quantity = parseInt(q!)
 
         agent.FichaApi.createTicket(ficha).then(() => {
             modalStore.openModal(<Resultado sucesso={true} />, true);
