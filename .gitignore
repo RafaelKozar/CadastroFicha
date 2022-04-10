@@ -10,3 +10,8 @@ FichaJR.API2/fichas.db
 FichaJR.API2/fichas.db-shm
 FichaJR.API2/fichas.db-wal
 ficha-app/node_modules/
+ficha-app/build/favicon.ico
+ficha-app/build/logo192.png
+ficha-app/build/logo512.png
+ficha-app/build/manifest.json
+ficha-app/build/robots.txt

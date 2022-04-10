@@ -1,5 +1,6 @@
 import { useField } from 'formik';
-import { Form, Label, Input } from 'semantic-ui-react';
+
+import { Input, FormLabel } from '@chakra-ui/react'
 import InputMask from "react-input-mask";
 import React from 'react';
 
@@ -8,7 +9,7 @@ interface Props {
     name: string;
     type?: string;
     label?: string;
-    mascara?: string;
+    mascara?: boolean;
 }
 
 export default function MyTextInput(props: Props) {
@@ -26,26 +27,26 @@ export default function MyTextInput(props: Props) {
 
     if (props.mascara) {
         return (
-            <Form.Field error={meta.touched && !!meta.error} >
+            <>
                 <label>{props.label}</label>
-                <Input {...field} {...props} fluid>
-                      <InputMask mask={props.mascara} placeholder='Celular'></InputMask> 
+                <Input {...field} {...props}>
+                      <InputMask mask='(##)####' placeholder='Celular'></InputMask> 
                 </Input>
                 {meta.touched && meta.error ? (
-                    <Label basic color='red'>{meta.error}</Label>
+                    <FormLabel color='red'>{meta.error}</FormLabel>
                 ) : null}
-            </Form.Field>
+            </>
         )
     }
     else {
         return (
-            <Form.Field error={meta.touched && !!meta.error}>
+            <>
                 <label>{props.label}</label>
-                <Input {...field} {...props} fluid></Input>
+                <Input {...field} {...props}></Input>
                 {meta.touched && meta.error ? (
-                    <Label basic color='red'>{meta.error}</Label>
+                    <FormLabel color='red'>{meta.error}</FormLabel>
                 ) : null}
-            </Form.Field>
+            </>
         )
     }
 }

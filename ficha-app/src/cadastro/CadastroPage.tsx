@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, Modal } from 'semantic-ui-react'
+import { Button} from '@chakra-ui/react'
 import * as Yup from 'yup';
 import { Formik, Form } from "formik";
 import MyTextInput from '../common/MyTextInput';
@@ -63,15 +63,12 @@ export default observer(function CadastroPage() {
                 {({ handleSubmit, isValid, isSubmitting, dirty }) => (
                     <Form onSubmit={handleSubmit} className="Form">
                         <MyTextInput placeholder="Nome" name="name" />
-                        <MyTextInput placeholder="Celular" type='number' name="phone" />
+                        <MyTextInput placeholder="Celular" type='number' name="phone"  />
                         <MySelectInput
                             placeholder='Selecione a quantidade de Fichas que a pessoa está comprando'
                             name="quantity"
                             options={fichaOpcoesQuantidade} />
-                        <Button
-                            disabled={!dirty || !isValid}
-                            color='green'
-                            type='submit'>Enviar</Button>
+                        <Button colorScheme='teal' size='xs' >Enviar</Button>
                     </Form>
                 )}
             </Formik>
