@@ -40,7 +40,7 @@ export default observer(function CadastroPage() {
     const validacaoFicha = Yup.object({
         name: Yup.string().required("Preencha o campo nome"),
         phone: Yup.string().required("Preencha o campo celular").matches(/^[0-9]+$/, "apenas número").min(11, "Preencha o campo celular com um número valido").max(11, "Preencha o campo celular com um número valido"),
-        // quantity: Yup.number().positive().nullable(true).required("Selecione o número de fichas do cadastro")
+        quantity: Yup.number().positive().nullable(true).required("Selecione o número de fichas do cadastro")
 
     })
 

@@ -1,5 +1,5 @@
 import { useField } from 'formik';
-import {Form, Label, Select as Tt} from 'semantic-ui-react';
+import {Form, Label, Placeholder, Select as Tt} from 'semantic-ui-react';
 import { Select } from '@chakra-ui/react'
 import React from 'react';
 
@@ -18,11 +18,11 @@ export default function MySelectInput(props: Props){
         <>
             <label>{props.label}</label>
             
-            <select {...field} {...props}>
+            <Select {...field} {...props} placeholder={props.placeholder}>
                 {valores.map((v, index) => 
                     <option key={index} value={v}>{v}</option>
                 )}
-            </select>
+            </Select>
             {meta.touched && meta.error ? (
                 <Label basic color='red'>{meta.error}</Label>
             ) : null}
